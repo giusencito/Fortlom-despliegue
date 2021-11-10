@@ -1,0 +1,48 @@
+.title{
+
+  color:#0B50C0;
+  font-size:30px
+}
+.card
+{
+  background-color:#C8C8C8;
+  margin-bottom: 30px;
+}
+.head{
+
+justify-content: space-between;
+
+
+}
+.but{
+
+
+background-color:#9CC7EF;
+
+
+
+
+}
+.color
+{
+  color: black;
+}
+.seconcard{
+
+  background-color:#C8C8C8;
+  margin-bottom: 20px;
+  margin-left: 30%;
+
+
+}
+.area
+{
+
+width: 100%;
+
+}
+.button-row button{
+  width: 40%;
+  margin:25px;
+
+}

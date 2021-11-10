@@ -1,0 +1,86 @@
+
+<app-navigation></app-navigation>
+<div class = "table-card">
+<mat-card>
+  <mat-card-title> Create Event</mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-divider></mat-divider>
+        <form    (submit)="onSubmit()"  #EventForm='ngForm' style="padding: 10px">
+          <mat-form-field style="padding-right: 15px">
+            <input matInput  placeholder="Insert event name" name="EventName" required
+                   [(ngModel)]="eventdata.EventName">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field style="padding-right: 15px">
+            <input matInput placeholder="Insert event description" name="EventDescription" required
+                   [(ngModel)]="eventdata.EventDescription">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field style="padding-right: 15px">
+            <input matInput placeholder="Insert id of artist" name="ArtistID" required
+                   [(ngModel)]="eventdata.ArtistID">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
+
+          <mat-form-field style="padding-right: 15px">
+            <input matInput placeholder="Insert number of likes" name="Likes" required
+                   [(ngModel)]="eventdata.Likes">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
+  
+  
+          <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
+          <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
+        </form>
+
+        
+        
+
+        <mat-divider></mat-divider>
+      </div>
+  
+      <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #id</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="EventName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>  #EventName</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.EventName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="EventDescription" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #EventDescription</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.EventDescription }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ArtistID" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #ArtistID</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.ArtistID }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Likes" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #Likes</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.Likes }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editItem(row)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button (click)="deleteItem(row.id)"><mat-icon>delete_outline</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef> Loading Data</mat-footer-cell>
+  
+        </ng-container>
+        <mat-header-row  *matHeaderRowDef="displayedColumns" ></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+  
+      </mat-table>
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
+  
+    </mat-card-content>
+  </mat-card>
+</div>

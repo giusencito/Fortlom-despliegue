@@ -1,0 +1,351 @@
+{
+  "Usuario": [
+    {
+      "id": 1,
+      "Name": "Guillermo",
+      "LastName": "Maduro",
+      "Email": "Gui@hotmail.com",
+      "Password": "buenas",
+      "Registration": "12/9/2021"
+    },
+    {
+      "id": 2,
+      "Name": "Juan",
+      "LastName": "Perez",
+      "Email": "PJ@hotmail.com",
+      "Password": "noches",
+      "Registration": "15/9/2021"
+    },
+    {
+      "Email": "giusencito@hotmail.com",
+      "Password": "contraseña",
+      "Name": "Giusen",
+      "LastName": "Rebaza",
+      "Registration": "2021-10-14T23:45:20.723Z",
+      "id": 3
+    },
+    {
+      "Email": "Flavio@hotmail.com",
+      "Password": "contraseña",
+      "Name": "Flavio ",
+      "LastName": "bustamante",
+      "Registration": "2021-10-15T03:55:35.808Z",
+      "id": 4
+    },
+    {
+      "Email": "fanatico@hotmail.com",
+      "Password": "contraseña",
+      "Name": "fanatico",
+      "LastName": "fanaticoapellido",
+      "Registration": "2021-10-22T01:48:53.953Z",
+      "id": 5
+    },
+    {
+      "Email": "artista@hotmail.com",
+      "Password": "contraseña",
+      "Name": "artista",
+      "LastName": "artistaapellido",
+      "Registration": "2021-10-22T01:49:49.702Z",
+      "id": 6
+    }
+  ],
+  "Artist": [
+    {
+      "id": 1,
+      "Tag": 0,
+      "Followers": 0
+    },
+    {
+      "Followers": 0,
+      "Tag": 0,
+      "id": 3
+    },
+    {
+      "Followers": 0,
+      "Tag": 0,
+      "id": 6
+    }
+  ],
+  "Fanatic": [
+    {
+      "id": 2,
+      "alias": "caminatumbas"
+    },
+    {
+      "alias": "Fas_Fas",
+      "id": 4
+    },
+    {
+      "alias": "elfanatico",
+      "id": 5
+    }
+  ],
+  "Follow": [
+    {
+      "id": 1,
+      "ArtistId": 1,
+      "FanaticId": 2
+    }
+  ],
+  "Rate": [
+    {
+      "id": 1,
+      "rate": 3,
+      "ArtistId": 1,
+      "FanaticId": 2
+    }
+  ],
+  "Report": [
+    {
+      "id": 1,
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain:": 1,
+      "UserReported": 2
+    }
+  ],
+  "Multimedia": [
+    {
+      "id": 1,
+      "MultimediaLink": "http://mimultimedia.com/",
+      "PublicationCode": 1
+    },
+    {
+      "id": 2,
+      "MultimediaLink": "http://mimultimedia2.com/",
+      "PublicationCode": 2
+    }
+  ],
+  "Forum": [
+    {
+      "ForumName": "Ejemplo 1",
+      "ForumDescription": "Ejemplo de descripcion 1",
+      "usuario": 4,
+      "id": 1
+    },
+    {
+      "ForumName": "Ejemplo 2",
+      "ForumDescription": "Ejemplo de descripcion 2",
+      "usuario": 4,
+      "id": 2
+    },
+    {
+      "ForumName": "Ejemplo 3",
+      "ForumDescription": "Ejemplo de descripcion 3",
+      "usuario": 4,
+      "id": 3
+    },
+    {
+      "ForumName": "Ejemplo 4",
+      "ForumDescription": "Ejemplo de descripcion 4",
+      "usuario": 4,
+      "id": 4
+    },
+    {
+      "ForumName": "Ejemplo 5",
+      "ForumDescription": "Ejemplo de descripcion 5",
+      "usuario": 4,
+      "id": 5
+    },
+    {
+      "ForumName": "Ejemplo 6",
+      "ForumDescription": "Ejemplo de descripcion 6",
+      "usuario": 4,
+      "id": 6
+    },
+    {
+      "ForumName": "Ejemplo 7",
+      "ForumDescription": "Ejemplo de descripcion 7",
+      "usuario": 4,
+      "id": 7
+    },
+    {
+      "ForumName": "Ejemplo 8",
+      "ForumDescription": "Ejemplo de descripcion 8",
+      "usuario": 4,
+      "id": 8
+    },
+    {
+      "ForumName": "Ejemplo 9",
+      "ForumDescription": "Ejemplo de descripcion 9",
+      "usuario": 4,
+      "id": 9
+    },
+    {
+      "ForumName": "Ejemplo 10",
+      "ForumDescription": "Ejemplo de descripcion 10",
+      "usuario": 4,
+      "id": 10
+    },
+    {
+      "ForumName": "Ejemplo 11",
+      "ForumDescription": "Ejemplo de descripcion 11",
+      "usuario": 4,
+      "id": 11
+    },
+    {
+      "ForumName": "Ejemplos 12",
+      "ForumDescription": "Ejemplo 12",
+      "usuario": 4,
+      "id": 12
+    }
+  ],
+  "Comment": [
+    {
+      "id": 1,
+      "CommentDescription": "You really going to like it",
+      "PublicationID": 1,
+      "UsuarioId": 1,
+      "Date": "10/9/2020"
+    },
+    {
+      "id": 2,
+      "CommentDescription": "Go and see it, it's tremendous",
+      "PublicationID": 2,
+      "UsuarioId": 2,
+      "Date": "20/03/2021"
+    },
+    {
+      "CommentDescription": "Estoy realizando un comentarios en esta publicación ",
+      "UsuarioId": "6",
+      "PublicationID": "3",
+      "id": 3
+    }
+  ],
+  "ForumComment": [
+    {
+      "id": 1,
+      "CommentDescription": "You really going to like it",
+      "ForumId": 1,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 1
+    },
+    {
+      "id": 2,
+      "CommentDescription": "Go and see it, it's tremendous",
+      "ForumId": 2,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 1
+    },
+    {
+      "CommentDescription": "Fantastic",
+      "ForumId": 2,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 1,
+      "id": 3
+    },
+    {
+      "CommentDescription": "Epic",
+      "ForumId": 2,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 1,
+      "id": 4
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumId": "3",
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 4,
+      "id": 5
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumId": 3,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 4,
+      "id": 6
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumId": "2",
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 4,
+      "id": 7
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumId": 12,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 3,
+      "id": 8
+    },
+    {
+      "CommentDescription": "Palas",
+      "ForumId": 12,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "UsuarioId": 4,
+      "id": 9
+    },
+    {
+      "CommentDescription": "Comentario de Prueba",
+      "UsuarioId": 4,
+      "Date": "2021-10-16T23:31:54.213Z",
+      "ForumId": 12,
+      "id": 10
+    },
+    {
+      "CommentDescription": "Comentario 2",
+      "UsuarioId": 4,
+      "Date": "2021-10-16T22:56:54.460Z",
+      "ForumId": 12,
+      "id": 11
+    },
+    {
+      "CommentDescription": "comentario 12",
+      "UsuarioId": 4,
+      "Date": "2021-10-20T22:36:09.586Z",
+      "ForumId": 12,
+      "id": 12
+    },
+    {
+      "CommentDescription": "comentarios 13",
+      "ForumId": "4",
+      "Date": "2021-10-22T01:45:54.035Z",
+      "id": 13
+    }
+  ],
+  "Publicacion": [
+    {
+      "id": 1,
+      "PublicationName": "New Music",
+      "PublicationDescription": "my new music is out",
+      "Likes": 20,
+      "Date": "30/8/2020",
+      "UserID": 1
+    },
+    {
+      "PublicationName": "Viaje a Miami",
+      "PublicationDescription": "Se fue a Miami",
+      "UserID": "4",
+      "Likes": "15",
+      "id": 2
+    }
+  ],
+  "Event": [
+    {
+      "id": 1,
+      "EventName": "RockMusicEvent",
+      "EventDescription": "An incredible event for those who likes rock music",
+      "ArtistID": 1,
+      "Likes": 30
+    },
+    {
+      "id": 2,
+      "EventName": "PopMusicEvent",
+      "EventDescription": "An incredible event for those who likes pop music",
+      "ArtistID": "3",
+      "Likes": "24"
+    }
+  ],
+  "Event_Fanatic": [
+    {
+      "id": 1,
+      "FanaticID": 1,
+      "EventID": 1
+    },
+    {
+      "id": 2,
+      "FanaticID": 2,
+      "EventID": 2
+    }
+  ]
+}

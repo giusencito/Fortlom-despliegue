@@ -1,0 +1,18 @@
+<style>
+  .post-form-mat-card {
+    width: calc(90%);
+    margin: auto;
+  }
+  .aclass {
+    width: 100%
+  }
+</style>
+<mat-card class="post-form-mat-card">
+  <mat-form-field appearance="fill" class="aclass">
+    <mat-label>Write something</mat-label>
+    <textarea #txt matInput></textarea>
+  </mat-form-field>
+  <mat-card-actions align="end">
+    <button mat-button color="primary" (click)="postComment(txt)">Post Comment</button>
+  </mat-card-actions>
+</mat-card>

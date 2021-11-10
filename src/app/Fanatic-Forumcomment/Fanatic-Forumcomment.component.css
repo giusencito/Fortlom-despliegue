@@ -1,0 +1,60 @@
+.button-row button{
+
+  margin:10px;
+
+  }
+form.normalform{
+
+  margin:30px;
+  width:60%;
+
+}
+.table{
+  width:60%;
+
+}
+
+.title{
+
+  color:#0B50C0;
+  font-size:20px
+}
+.card
+{
+  background-color:#C8C8C8;
+  margin-bottom: 20px;
+  width:70%;
+  margin-left: 30%;
+}
+.head{
+
+justify-content: space-between;
+
+
+}
+.but{
+
+
+background-color:#9CC7EF;
+
+
+
+
+}
+.color
+{
+  color: black;
+}
+.table-card{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 30%;
+}
+.mats
+{
+
+  margin-top: 20%;
+
+}

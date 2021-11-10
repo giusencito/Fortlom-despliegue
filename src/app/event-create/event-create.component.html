@@ -1,0 +1,24 @@
+
+<form  (submit)="onSubmit()"  #EventForm='ngForm'>
+  <mat-form-field>
+    <input matInput placeholder="EventName" name="EventName" required
+    [(ngModel)]="event_data.EventName">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+ <!--
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <input matInput placeholder="EventDescription" name="EventDescription" required
+      [(ngModel)]="event_data.EventDescription">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <input matInput placeholder="Likes" name="Likes" required
+      [(ngModel)]="event_data.Likes">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+    <button type="submit">Aceptar</button>
+    <button >Limpiar</button>
+    -->
+</form>

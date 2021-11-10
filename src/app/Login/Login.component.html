@@ -1,0 +1,46 @@
+
+
+<mat-grid-list cols="2" rows="5" rowHeight="700px">
+
+<mat-grid-tile>
+<form [formGroup]="loginform" class="form"  >
+
+  <div class="form-group">
+
+    <input formControlName="email" matInput type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" requiered >
+    <mat-error *ngIf="loginform.controls['email'].dirty && loginform.hasError('required','email')">Es requerido</mat-error>
+  </div>
+  <div class="form-group" >
+
+    <input formControlName="password" matInput type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
+    <mat-error *ngIf="loginform.controls['password'].dirty && loginform.hasError('required','password')">Es requerido</mat-error>
+
+  </div>
+
+
+
+  <button type="submit"  [disabled]="!loginform.valid" mat-raised-button color="primary" class="but" (click)="onSubmit()">Ingresar</button>
+  <div class="form-group">
+
+    <a routerLink="/registerfanatic"  style="color:#000000;" class="link">Register yourself as a fan</a>
+
+
+  </div>
+   <div class="form-group">
+    <a routerLink="/registerartist" style="color:#000000;" class="link">Register yourself as an artist</a>
+   </div>
+
+
+</form>
+
+</mat-grid-tile>
+<mat-grid-tile>
+  <div>
+<img src='https://cdn.discordapp.com/attachments/866839251563446272/898317609735450654/unknown.png'
+class="imagehome">
+
+<h2 class="pp">“Connect with the artists you love, or with the fans you adore”</h2>
+
+</div>
+</mat-grid-tile>
+</mat-grid-list>

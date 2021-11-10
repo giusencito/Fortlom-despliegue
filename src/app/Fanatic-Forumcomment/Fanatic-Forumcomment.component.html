@@ -1,0 +1,147 @@
+
+
+<div class="table-card">
+  <mat-card>
+  <mat-card-title> Create Forum Comment</mat-card-title>
+  <mat-card-content>
+  <div>
+    <mat-divider> </mat-divider>
+    <form    (submit)="onSubmit()"  #commentdataForm='ngForm' style="padding: 10px">
+      <mat-form-field style="padding-right: 15px">
+        <input matInput  placeholder="CommentDescription" name="CommentDescription" required
+               [(ngModel)]="commentdata.CommentDescription">
+        <mat-error>Es requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field style="padding-right: 15px">
+        <input matInput  placeholder="ForumId" name="ForumId" required
+               [(ngModel)]="commentdata.ForumId">
+        <mat-error>Es requerido</mat-error>
+      </mat-form-field>
+      <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
+
+      <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
+    </form>
+
+    <mat-divider></mat-divider>
+  </div>
+  <mat-table  [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> #id</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="CommentDescription">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  #CommentDescription</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.CommentDescription }}</mat-cell>
+    </ng-container>
+    <div>
+    <ng-container matColumnDef="forum">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  #forum</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.ForumId }}</mat-cell>
+    </ng-container>
+  </div>
+    <ng-container matColumnDef="Date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>  #Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ getfechacomment(element.Date) }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="editItem(row)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button (click)="deleteItem(row.id)"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row  *matHeaderRowDef="displayedColumns" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+
+
+
+
+
+
+
+  </mat-table>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </mat-card-content>
+  </mat-card>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div *ngFor="let element of dataSource.data">
+
+<mat-card class="card">
+
+
+<mat-card-header class="head">
+  <mat-card-title class="title">{{element.CommentDescription}} </mat-card-title>
+  <button mat-fab class="but"> <mat-icon class="color">flag</mat-icon></button>
+
+</mat-card-header>
+
+<app-UserInformationforForum [idcomment]="element.UsuarioId"></app-UserInformationforForum>
+<mat-card-footer align="end">
+  <p>{{getfechacomment(element.Date)}}</p>
+
+</mat-card-footer>
+
+
+</mat-card>
+
+
+
+
+</div>
+
+
+-->
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+.Homebar{
+  justify-content: space-between;
+  background: black;
+}
+.logo{
+  border-radius: 10%;
+  
+  width: 60px;
+  display: block;
+  cursor: pointer;
+}
+.options a{
+
+font-family:'Times New Roman', Times, serif;
+color:whitesmoke;
+font-size: larger;
+}
