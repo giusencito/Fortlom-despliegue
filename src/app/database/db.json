@@ -5,16 +5,16 @@
       "Name": "Guillermo",
       "LastName": "Maduro",
       "Email": "Gui@hotmail.com",
-      "Password": "buenas noches",
+      "Password": "buenas",
       "Registration": "12/9/2021"
     },
     {
       "id": 2,
-      "name": "Juan",
-      "lastName": "Perez",
-      "email": "PJ@hotmail.com",
-      "password": "noches",
-      "registration": "15/9/2021"
+      "Name": "Juan",
+      "LastName": "Perez",
+      "Email": "PJ@hotmail.com",
+      "Password": "noches",
+      "Registration": "15/9/2021"
     },
     {
       "Email": "giusencito@hotmail.com",
@@ -25,18 +25,18 @@
       "id": 3
     },
     {
-      "email": "Flavio@hotmail.com",
-      "password": "contraseña",
-      "name": "Flavio ",
-      "lastName": "bustamante",
+      "Email": "Flavio@hotmail.com",
+      "Password": "contraseña",
+      "Name": "Flavio ",
+      "LastName": "bustamante",
       "Registration": "2021-10-15T03:55:35.808Z",
       "id": 4
     },
     {
-      "email": "fanatico@hotmail.com",
-      "password": "contraseña",
-      "name": "fanatico",
-      "lastName": "fanaticoapellido",
+      "Email": "fanatico@hotmail.com",
+      "Password": "contraseña",
+      "Name": "fanatico",
+      "LastName": "fanaticoapellido",
       "Registration": "2021-10-22T01:48:53.953Z",
       "id": 5
     },
@@ -53,17 +53,17 @@
     {
       "id": 1,
       "Tag": 0,
-      "followers": 12
+      "Followers": 0
     },
     {
-      "id": 3,
+      "Followers": 0,
       "Tag": 0,
-      "followers": 15
+      "id": 3
     },
     {
-      "id": 5,
+      "Followers": 0,
       "Tag": 0,
-      "followers": 4
+      "id": 6
     }
   ],
   "Fanatic": [
@@ -101,65 +101,17 @@
       "ReportDescription": "Insultos frecuentes",
       "UserMain:": 1,
       "UserReported": 2
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 1,
-      "PostReported": 1,
-      "apiId": "v1",
-      "id": 2
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 4,
-      "PostReported": 1,
-      "apiId": "v1",
-      "id": 3
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 4,
-      "PostReported": 2,
-      "apiId": "v1",
-      "id": 4
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 4,
-      "PostReported": 2,
-      "apiId": "v1",
-      "id": 5
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 1,
-      "PostReported": 1,
-      "id": 6
-    },
-    {
-      "ReportDescription": "Insultos frecuentes",
-      "UserMain": 1,
-      "PostReported": 2,
-      "id": 7
-    },
-    {
-      "reportDescription": "HOLA",
-      "id": 8
-    },
-    {
-      "reportDescription": "HOLA!\"",
-      "id": 9
     }
   ],
   "Multimedia": [
     {
       "id": 1,
-      "MultimediaLink": "https://www.gettyimages.es/gi-resources/images/500px/983794168.jpg",
+      "MultimediaLink": "http://mimultimedia.com/",
       "PublicationCode": 1
     },
     {
       "id": 2,
-      "MultimediaLink": "https://vinusimages.co/wp-content/uploads/2018/10/EG7A2390.jpgA_.jpg",
+      "MultimediaLink": "http://mimultimedia2.com/",
       "PublicationCode": 2
     }
   ],
@@ -356,7 +308,7 @@
       "id": 1,
       "PublicationName": "New Music",
       "PublicationDescription": "my new music is out",
-      "Likes": 26,
+      "Likes": 20,
       "Date": "30/8/2020",
       "UserID": 1
     },
@@ -364,7 +316,7 @@
       "PublicationName": "Viaje a Miami",
       "PublicationDescription": "Se fue a Miami",
       "UserID": "4",
-      "Likes": 151112,
+      "Likes": "15",
       "id": 2
     }
   ],
@@ -374,14 +326,14 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes rock music",
       "ArtistID": 1,
-      "Likes": 48
+      "Likes": 30
     },
     {
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
-      "ArtistID": 3,
-      "Likes": 26
+      "ArtistID": "3",
+      "Likes": "24"
     }
   ],
   "Event_Fanatic": [

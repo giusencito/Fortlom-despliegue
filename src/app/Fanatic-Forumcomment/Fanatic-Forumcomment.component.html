@@ -1,5 +1,5 @@
 
-<!--
+
 <div class="table-card">
   <mat-card>
   <mat-card-title> Create Forum Comment</mat-card-title>
@@ -9,12 +9,12 @@
     <form    (submit)="onSubmit()"  #commentdataForm='ngForm' style="padding: 10px">
       <mat-form-field style="padding-right: 15px">
         <input matInput  placeholder="CommentDescription" name="CommentDescription" required
-               [(ngModel)]="commentdata.forumCommentDescription">
+               [(ngModel)]="commentdata.CommentDescription">
         <mat-error>Es requerido</mat-error>
       </mat-form-field>
       <mat-form-field style="padding-right: 15px">
         <input matInput  placeholder="ForumId" name="ForumId" required
-               [(ngModel)]="forumid">
+               [(ngModel)]="commentdata.ForumId">
         <mat-error>Es requerido</mat-error>
       </mat-form-field>
       <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
@@ -31,17 +31,17 @@
     </ng-container>
     <ng-container matColumnDef="CommentDescription">
       <mat-header-cell *matHeaderCellDef mat-sort-header>  #CommentDescription</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.forumCommentDescription }}</mat-cell>
+      <mat-cell *matCellDef="let element">{{ element.CommentDescription }}</mat-cell>
     </ng-container>
     <div>
     <ng-container matColumnDef="forum">
       <mat-header-cell *matHeaderCellDef mat-sort-header>  #forum</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ getUserId(element.id) }}</mat-cell>
+      <mat-cell *matCellDef="let element">{{ element.ForumId }}</mat-cell>
     </ng-container>
   </div>
     <ng-container matColumnDef="Date">
       <mat-header-cell *matHeaderCellDef mat-sort-header>  #Date</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{ element.date }}</mat-cell>
+      <mat-cell *matCellDef="let element">{{ getfechacomment(element.Date) }}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
@@ -91,7 +91,6 @@
   </div>
 
 
--->
 
 
 
@@ -110,21 +109,21 @@
 
 
 
-
+<!--
 <div *ngFor="let element of dataSource.data">
 
 <mat-card class="card">
 
 
 <mat-card-header class="head">
-  <mat-card-title class="title">{{element.forumCommentDescription}} </mat-card-title>
+  <mat-card-title class="title">{{element.CommentDescription}} </mat-card-title>
   <button mat-fab class="but"> <mat-icon class="color">flag</mat-icon></button>
 
 </mat-card-header>
 
-<app-UserInformationforForum [idcomment]="element.user.id"></app-UserInformationforForum>
+<app-UserInformationforForum [idcomment]="element.UsuarioId"></app-UserInformationforForum>
 <mat-card-footer align="end">
-  <p>{{element.date}}</p>
+  <p>{{getfechacomment(element.Date)}}</p>
 
 </mat-card-footer>
 
@@ -137,7 +136,7 @@
 </div>
 
 
-
+-->
 
 
 

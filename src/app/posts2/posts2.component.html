@@ -8,25 +8,25 @@
         <form    (submit)="onSubmit()"  #EventForm='ngForm' style="padding: 10px">
           <mat-form-field style="padding-right: 15px">
             <input matInput  placeholder="Insert post name" name="EventName" required
-                   [(ngModel)]="postdata.publicationName">
+                   [(ngModel)]="postdata.PublicationName">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert post description" name="EventDescription" required
-                   [(ngModel)]="postdata.publicationDescription">
+                   [(ngModel)]="postdata.PublicationDescription">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert id of artist" name="ArtistID" required
-                   [(ngModel)]="idartists">
+                   [(ngModel)]="postdata.UserID">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert number of likes" name="Likes" required
-                   [(ngModel)]="postdata.likes">
+                   [(ngModel)]="postdata.Likes">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
@@ -48,19 +48,19 @@
         </ng-container>
         <ng-container matColumnDef="PostName">
           <mat-header-cell *matHeaderCellDef mat-sort-header>  #PostName</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.publicationName }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.PublicationName }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="PostDescription" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> #PostDescription</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.publicationDescription }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.PublicationDescription }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="ArtistID" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> #ArtistID</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ getArtistId(element.id) }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.UserID }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="Likes" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> #Likes</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.likes }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.Likes }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>

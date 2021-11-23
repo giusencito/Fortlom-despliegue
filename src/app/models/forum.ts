@@ -2,7 +2,7 @@ import { Usuario } from "./usuario";
 
 export interface Forum {
     id:number;
-    forumName: string;
-    forumDescription:string;
-    user:Usuario;
+    ForumName: string;
+    ForumDescription:string;
+    usuario:number;
 }

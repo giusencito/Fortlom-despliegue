@@ -9,9 +9,8 @@ import {Event} from "../../models/event";
 })
 export class EventService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/event';
-BasePath=  'https://fortlom-backend.herokuapp.com/api/v1/events';
-basepathcreate='https://fortlom-backend.herokuapp.com/api/v1/artist';
+basePath = 'http://localhost:3000/Event';
+
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -23,19 +22,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  }
+  } 
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-
+  
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Event
-create(artistid:number,item: any): Observable<Event> {
-  return this.http.post<Event>(`${this.basepathcreate}/${artistid}/events`, JSON.stringify(item), this.httpOptions)
+create(item: any): Observable<Event> {
+  return this.http.post<Event>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -51,7 +50,7 @@ getById(id: any): Observable<Event> {
 
 // Get All Events
 getAll(): Observable<Event> {
-  return this.http.get<Event>(this.BasePath, this.httpOptions)
+  return this.http.get<Event>(this.basePath, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

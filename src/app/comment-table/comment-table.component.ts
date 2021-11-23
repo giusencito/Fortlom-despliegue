@@ -7,12 +7,11 @@ import {NgForm} from "@angular/forms";
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EventCreateComponent } from '../event-create/event-create.component';
-import {DatePipe} from '@angular/common';
+
 @Component({
   selector: 'app-comment-table',
   templateUrl: './comment-table.component.html',
-  styleUrls: ['./comment-table.component.css'],
-  providers: [DatePipe]
+  styleUrls: ['./comment-table.component.css']
 })
 export class CommentTableComponent implements OnInit {
 
@@ -20,17 +19,16 @@ export class CommentTableComponent implements OnInit {
   comments:Comment[]=[];
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'CommentDescription','PublicationID','UsuarioId','actions'];
-  iduser!:number;
-  idpublic!:number
+
   @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
-  public current_date=new Date();
+
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
   isEditMode = false;
 
-  constructor(private eventService: CommentService,private dialog:MatDialog,public datepipe: DatePipe) {
+  constructor(private eventService: CommentService,private dialog:MatDialog) {
     this.commentdata = {} as Comment;
     this.dataSource = new MatTableDataSource<any>();
   }
@@ -45,26 +43,13 @@ export class CommentTableComponent implements OnInit {
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response.content;
+      this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
 
-      console.log(this.dataSource.data)
+      console.log(response)
     });
   }
-  getUserId(id :number){
 
-
-    return this.dataSource.data[id-1].user.id
-
-
-    }
-    getPublicId(id :number){
-
-
-      return this.dataSource.data[id-1].publication.id
-
-
-      }
   deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
       this.dataSource.data = this.dataSource.data.filter((o: Comment) => {
@@ -74,8 +59,8 @@ export class CommentTableComponent implements OnInit {
     console.log(this.dataSource.data);
   }
 
-  addEvent(userid:number,publicationId:number) {
-    this.eventService.create(this.commentdata,userid,publicationId).subscribe((response: any) => {
+  addEvent() {
+    this.eventService.create(this.commentdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
@@ -124,11 +109,7 @@ export class CommentTableComponent implements OnInit {
         this.updateEvent();
         console.log("se actualizo")
       } else {
-        var sa=this.datepipe.transform(this.current_date, 'MMMM d, y, h:mm:ss a z')!;
-        console.log(sa)
-        this.commentdata.date=sa
-        console.log(this.commentdata )
-        this.addEvent(this.iduser,this.idpublic);
+        this.addEvent();
       }
     }else{
       console.log('Invalid data');

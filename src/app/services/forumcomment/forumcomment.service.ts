@@ -9,9 +9,9 @@ import {Forumcomment} from "../../models/forumcomment";
 })
 export class ForumcommentService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/forumcomments';
-basepathcomentsforforoum='https://fortlom-backend.herokuapp.com/api/v1/forums'
-basePath2='https://fortlom-backend.herokuapp.com/api/v1/users'
+basePath = 'http://localhost:3000/ForumComment';
+basepathcomentsforforoum='http://localhost:3000/Forum'
+
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -34,8 +34,8 @@ handleError(error: HttpErrorResponse) {
 }
 
 // Create ForumComment
-create(item: any,userId:number,forumId:number): Observable<Forumcomment> {
-  return this.http.post<Forumcomment>(`${this.basePath2}/${userId}/forums/${forumId}/forumcomments`, JSON.stringify(item), this.httpOptions)
+create(item: any): Observable<Forumcomment> {
+  return this.http.post<Forumcomment>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -76,7 +76,7 @@ delete(id: any) {
 
 getallcommentsperforum(id:number){
 
-  return this.http.get<Forumcomment>(`${this.basepathcomentsforforoum}/${id}/forumcomments`, this.httpOptions)
+  return this.http.get<Forumcomment>(`${this.basepathcomentsforforoum}/${id}/ForumComment`, this.httpOptions)
   .pipe(
     retry(2),
     catchError(this.handleError));

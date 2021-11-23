@@ -1,11 +1,7 @@
-import {Component , OnInit, ViewChild} from '@angular/core';
-import {Event} from '../models/event';
-import {EventService} from '../services/event/event.service';
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
-import {NgForm} from "@angular/forms";
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Event } from '../models/event'; 
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { EventService } from '../services/event/event.service';
 import { EventComponent } from '../event/event.component';
 
 @Component({
@@ -14,49 +10,17 @@ import { EventComponent } from '../event/event.component';
   styleUrls: ['./event-create.component.css']
 })
 export class EventCreateComponent implements OnInit {
-  eventdata!: Event;
-  eventcomponent !: EventComponent;
-  idevent!:number;
-  dataSource!: MatTableDataSource<any>;
-
-  @ViewChild('EventForm', {static: false})
+  event_data !: Event;
   EventForm!: NgForm;
 
-  @ViewChild(MatPaginator, {static: true})
-  paginator!: MatPaginator;
-
-  constructor(private eventService: EventService,private dialog:MatDialog) {
-    this.eventdata = {} as Event;
-    this.eventcomponent = {} as EventComponent;
-    this.dataSource = new MatTableDataSource<any>();
+  constructor() { 
+    this.event_data = {} as Event
   }
 
-
-  ngOnInit() :void{
-    this.dataSource.paginator = this.paginator;
-    this.idevent = this.eventcomponent.idevent;
-    console.log(this.idevent)
+  ngOnInit() {
   }
 
-  getAllEvents() {
-    this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
-      this.dataSource.paginator=this.paginator;
-
-      console.log(response)
-    });
+  onSubmit(){
+    console.log(this.event_data) 
   }
-
-  addEvent(id:number) {
-    console.log(this.eventdata)
-    this.eventService.create(id,this.eventdata).subscribe((response: any) => {
-      this.dataSource.data.push( {...response});
-      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
-    });
-  }
-
-  ClearForm(){
-    this.EventForm.resetForm();
-  }
-
 }

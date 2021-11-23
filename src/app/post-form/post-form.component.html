@@ -6,10 +6,6 @@
   .example-full-width {
     width: 100%;
   }
-  .medium-width {
-    width: calc(50%);
-    margin:auto;
-  }
 </style>
 
 <mat-card class="post-form-mat-card">
@@ -17,24 +13,6 @@
     <textarea #txt matInput placeholder="Ex. It makes me feel..."></textarea>
   </mat-form-field>
   <mat-card-actions align="end">
-    <button mat-button (click)="multimediaDialog = true"><mat-icon>link</mat-icon></button>
     <button mat-raised-button color="primary" (click)="postPost(txt)">Post</button>
   </mat-card-actions>
 </mat-card>
-
-<div *ngIf="multimediaDialog">
-  <br>
-  <mat-card class="medium-width">
-    <input
-      #txtDialog1
-      matInput
-      placeholder="Ex. https://content.ext"
-      type="text"
-    >
-    <mat-card-actions align="end">
-      <button mat-button color="primary" (click)="multimediaDialog = false">Close</button>
-      <button mat-raised-button color="primary"
-              (click)="getLinkFromDialog(txtDialog1); multimediaDialog = false">Append</button>
-    </mat-card-actions>
-  </mat-card>
-</div>

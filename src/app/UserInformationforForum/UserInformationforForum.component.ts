@@ -29,8 +29,8 @@ getidUser(id:number){
 
       this.user=response;
        console.log(this.user);
-       this.username=this.user.name
-       this.userlastname=this.user.lastName;
+       this.username=this.user.Name
+       this.userlastname=this.user.LastName;
 
     });
 

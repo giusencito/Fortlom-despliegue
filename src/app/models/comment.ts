@@ -3,8 +3,8 @@ import { Usuario } from "./usuario";
 
 export interface Comment {
     id: number;
-    commentDescription: string;
-    publication: Publicacion;
-    user:Usuario;
-    date:string;
+    CommentDescription: string;
+    PublicationID: Publicacion;
+    UsuarioId:Usuario;
+    Date:string;
 }

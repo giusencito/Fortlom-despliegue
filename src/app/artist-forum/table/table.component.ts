@@ -29,7 +29,7 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator,{static: false}) paginator !:MatPaginator;
   searchKey!:string;
   isEditMode = false;
-  numerot:number=1
+
   constructor(private forumService: ForumService,private dialog:MatDialog) {
     this.forumdata = {} as Forum;
     this.dataSource = new MatTableDataSource<any>();
@@ -45,10 +45,10 @@ export class TableComponent implements OnInit {
 
   getAllForums() {
     this.forumService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response.content;
+      this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
 
-      console.log(this.dataSource.data)
+      console.log(response)
     });
   }
 
@@ -61,8 +61,8 @@ export class TableComponent implements OnInit {
     console.log(this.dataSource.data);
   }
 
-  addForum(id:number) {
-    this.forumService.create(this.forumdata,id).subscribe((response: any) => {
+  addForum() {
+    this.forumService.create(this.forumdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
@@ -103,7 +103,7 @@ export class TableComponent implements OnInit {
         this.updateForum();
         console.log("se actualizo")
       } else {
-        this.addForum(this.numerot);
+        this.addForum();
         }
     }else{
         console.log('Invalid data');
