@@ -9,8 +9,8 @@ import {Report} from "../../models/report";
 })
 export class ReportService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/reports';
-basePath2= 'https://fortlom-backend.herokuapp.com/api/v1/usersmains'
+basePath = 'http://localhost:8080/api/v1/reports';
+basePath2= 'http://localhost:8080/api/v1/usersmains'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

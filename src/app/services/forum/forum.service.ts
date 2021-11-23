@@ -9,8 +9,8 @@ import {Forum} from "../../models/forum";
 })
 export class ForumService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/forums';
-basePath2="https://fortlom-backend.herokuapp.com/api/v1/user"
+basePath = 'http://localhost:8080/api/v1/forums';
+basePath2="http://localhost:8080/api/v1/user"
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

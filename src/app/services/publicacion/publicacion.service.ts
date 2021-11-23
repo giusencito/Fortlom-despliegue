@@ -9,8 +9,8 @@ import {Publicacion} from "../../models/publicacion";
 })
 export class PublicacionService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/publications';
-basepath2= 'https://fortlom-backend.herokuapp.com/api/v1/artists';
+basePath = 'http://localhost:8080/api/v1/publications';
+basepath2= 'http://localhost:8080/api/v1/artists';
 
 httpOptions = {
   headers: new HttpHeaders({
