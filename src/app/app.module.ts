@@ -33,10 +33,12 @@ import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     HomeComponent,
 
@@ -63,8 +65,8 @@ import { UserInformationforForumComponent } from './UserInformationforForum/User
       FanaticForumCreateComponent,
       ForumPageComponent,
       UserInformationforForumComponent,
-
-
+      ConfigurationComponent,
+      ConfigurationFanaticComponent
    ],
   imports: [
     BrowserModule,
