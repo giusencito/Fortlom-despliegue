@@ -2,7 +2,7 @@ import {Usuario} from "./usuario";
 
 export interface Report {
     id: number;
-    reportDescription:string;
+    ReportDescription:string;
     UserMain: Usuario;
     UserReported: Usuario;
 }

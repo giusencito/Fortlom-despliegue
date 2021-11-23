@@ -10,8 +10,8 @@ import {FormControl} from '@angular/forms'
 })
 export class FanaticForumService {
   // Students Endpoint
-  basePath = 'https://fortlom-backend.herokuapp.com/api/v1/forums';
-  basePath2="https://fortlom-backend.herokuapp.com/api/v1/user"
+  basePath = 'http://localhost:3000/Forum';
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -43,8 +43,8 @@ export class FanaticForumService {
   }
 
   // Create Student
-  create(item: any,id:number): Observable<Forum> {
-    return this.http.post<Forum>(`${this.basePath2}/${id}/forums`, JSON.stringify(item), this.httpOptions)
+  create(item: any): Observable<Forum> {
+    return this.http.post<Forum>(this.basePath, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

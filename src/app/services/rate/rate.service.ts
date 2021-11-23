@@ -9,8 +9,8 @@ import {Rate} from "../../models/rate";
 })
 export class RateService {
 
-basePath = 'https://fortlom-backend.herokuapp.com/api/v1/rates';
-basePatn2='https://fortlom-backend.herokuapp.com/api/v1/fanatics';
+basePath = 'http://localhost:3000/Rate';
+
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -22,19 +22,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  }
+  } 
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-
+  
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Rate
-create(fanaticid:number,artistid:number,item: any): Observable<Rate> {
-  return this.http.post<Rate>(`${this.basePatn2}/${fanaticid}/artists/${artistid}/rates`, JSON.stringify(item), this.httpOptions)
+create(item: any): Observable<Rate> {
+  return this.http.post<Rate>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -58,7 +58,7 @@ getAll(): Observable<Rate> {
 
 // Update Rate
 update(id: any, item: any): Observable<Rate> {
-  return this.http.put<Rate>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Rate>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

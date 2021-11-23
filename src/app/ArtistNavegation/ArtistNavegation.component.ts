@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-ArtistNavegation',
@@ -10,63 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ArtistNavegationComponent implements OnInit {
 
-  idnumber!:number
-  constructor(private cd:Router,private route:ActivatedRoute) { }
+  constructor() { }
 
-  ngOnInit() {let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
-  let id= pod;
-  this.idnumber=id;
-  console.log(this.idnumber)
-}
-enterhome(){
-
-  this.cd.navigate(['/HomeArtist',this.idnumber])
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-enterForum(){
-    this.cd.navigate(['/HomeArtist',this.idnumber,'ArtistForum'])
-    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
-    let id= pod;
-    this.idnumber=id;
-
+  ngOnInit() {
   }
-
-  enterposts(){
-
-    this.cd.navigate(['/HomeArtist',this.idnumber,'posts'])
-
-
-  }
-  enterEvents(){}
-  enterConfigurationArtist(){
-
-    this.cd.navigate(['/HomeArtist',this.idnumber,'ConfigureArtist'])
-
-  }
-
-  enterEvent(){
-
-    this.cd.navigate(['/HomeArtist',this.idnumber,'Event'])
-
-
-  }
-
-
-
-
-
-
 
 }

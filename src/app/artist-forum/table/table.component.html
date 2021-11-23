@@ -7,13 +7,13 @@
       <form    (submit)="onSubmit()"  #ForumForm='ngForm' style="padding: 10px">
         <mat-form-field style="padding-right: 15px">
           <input matInput  placeholder="ForumName" name="ForumName" required
-                 [(ngModel)]="forumdata.forumName">
+                 [(ngModel)]="forumdata.ForumName">
           <mat-error>Es requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field style="padding-right: 15px">
           <input matInput placeholder="ForumDescription" name="ForumDescription" required
-                 [(ngModel)]="forumdata.forumDescription">
+                 [(ngModel)]="forumdata.ForumDescription">
           <mat-error>Es requerido</mat-error>
         </mat-form-field>
 
@@ -34,11 +34,11 @@
       </ng-container>
       <ng-container matColumnDef="ForumName">
         <mat-header-cell *matHeaderCellDef mat-sort-header>  #ForumName</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.forumName }}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.ForumName }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="ForumDescription" >
         <mat-header-cell *matHeaderCellDef mat-sort-header> #ForumDescription</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.forumDescription }}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.ForumDescription }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>

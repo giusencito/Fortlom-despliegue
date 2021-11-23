@@ -18,7 +18,6 @@ export class ArtistRegisterComponent implements OnInit {
   user!:Usuario;
   artist!:Artist
   date!:Date;
-  email!:string;
   constructor(private formBuilder:FormBuilder,private route:Router,private service:ArtistService,private service2:UsuarioService) {
     this.user={}as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -37,32 +36,21 @@ export class ArtistRegisterComponent implements OnInit {
 
      })
      this.getAllUsers()
-     this.getallArtits()
-     console.log(this.user)
   }
-
 
   registerUser(){
 
     this.service2.create(this.user).subscribe((response: any) => {
-      console.log(response.content);
-      
+      this.dataSource.data.push( {...response});
+      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
 
 
   }
-
-
-
-
-
-
-
   getAllUsers(){
     this.service2.getAll().subscribe((response: any) => {
-      this.dataSource.data = response.content;
-      console.log(this.dataSource.data)
-
+      this.dataSource.data = response;
+      console.log(response)
     });
 
 
@@ -70,38 +58,22 @@ export class ArtistRegisterComponent implements OnInit {
   registerArtist(){
 
     this.service.create(this.artist).subscribe((response: any) => {
-      this.signupform.reset();
-      this.route.navigate(['/login'])
+      this.dataSource2.data.push( {...response});
+      this.dataSource2.data = this.dataSource2.data.map((o: any) => { return o; });
     });
 
 
   }
-  getallArtits(){
-
-    this.service.getAll().subscribe((response: any) => {
-      this.dataSource2.data = response.content;
-      console.log(this.dataSource2.data)
-
-    });
-
-
-  }
-
-
   onSubmit(){
-
-  console.log(this.signupform.value.email)
-
-   this.artist.followers=0
-   this.artist.tags=0
+   this.user.Registration=this.date
+   this.artist.Followers=0
+   this.artist.Tag=0
    let artistid=this.dataSource.data.length+1
    this.artist.id=artistid
-   console.log(this.user)
-   console.log(this.artist)
    this.registerUser()
    this.registerArtist()
-  //this.signupform.reset();
-   //this.route.navigate(['/login'])
+   this.signupform.reset();
+   this.route.navigate(['/login'])
 
   }
 
