@@ -9,8 +9,8 @@ import {Multimedia} from "../../models/multimedia";
 })
 export class MultimediaService {
 
-basePath = 'http://localhost:3000/Multimedia';
-
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/multimedias';
+basePath2='https://fortlom-backend.herokuapp.com/api/v1/publications'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -22,19 +22,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Multimedia
-create(item: any): Observable<Multimedia> {
-  return this.http.post<Multimedia>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(item: any,publicationId:number): Observable<Multimedia> {
+  return this.http.post<Multimedia>(`${this.basePath2}/${publicationId}/multimedias`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -55,10 +55,17 @@ getAll(): Observable<Multimedia> {
       retry(2),
       catchError(this.handleError));
 }
+getallmultimediabypublication(id:number){
 
+  return this.http.get<Multimedia>(`${this.basePath2}/${id}/multimedias`, this.httpOptions)
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
+
+}
 // Update Multimedia
 update(id: any, item: any): Observable<Multimedia> {
-  return this.http.post<Multimedia>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Multimedia>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

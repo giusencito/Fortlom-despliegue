@@ -9,7 +9,8 @@ import {Fanatic} from "../../models/fanatic";
 })
 export class FanaticService {
 
-basePath = 'http://localhost:3000/Fanatic';
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/fanatics';
+basePath2 ='http://localhost:3000/Fanatic';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,13 +23,13 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
@@ -58,10 +59,9 @@ getAll(): Observable<Fanatic> {
 
 // Update Fanatic
 update(id: any, item: any): Observable<Fanatic> {
-  return this.http.post<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError));
+
+  return this.http.put<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+
 }
 
 // Delete Fanatic

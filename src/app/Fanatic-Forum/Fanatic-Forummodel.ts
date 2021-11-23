@@ -1,8 +1,9 @@
+import { Usuario } from './../models/usuario';
 export interface Forum{
   id: number;
-  ForumName: string;
-  ForumDescription: string;
-
+  forumName: string;
+  forumDescription: string;
+  userid:Usuario;
 
 
 }

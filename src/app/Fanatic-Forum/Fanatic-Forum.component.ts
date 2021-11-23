@@ -29,6 +29,7 @@ export class FanaticForumComponent implements OnInit {
   @ViewChild(MatPaginator,{static: false}) paginator !:MatPaginator;
   searchKey!:string;
   isEditMode = false;
+  numerot:number=1
   form:FormGroup=new FormGroup({
   ForumName!:new FormControl('',Validators.required),
   ForumDescription!:new FormControl('',[Validators.required,Validators.maxLength(40)])
@@ -42,7 +43,7 @@ idnumber!:number;
 
   }
   ngOnInit(): void {
-    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
 
@@ -52,13 +53,15 @@ idnumber!:number;
     console.log(this.isEditMode)
     this.getbyid(1)
   }
+
+
   getAllStudents() {
     this.service.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
 
-      console.log(response)
+      console.log( this.dataSource.data)
     });
 }
 
@@ -110,8 +113,8 @@ deleteItem(id: number) {
   console.log(this.dataSource.data);
 }
 
-addStudent() {
-  this.service.create(this.forumdata).subscribe((response: any) => {
+addStudent(id:number) {
+  this.service.create(this.forumdata,id).subscribe((response: any) => {
     this.dataSource.data.push( {...response});
     this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
   });
@@ -135,7 +138,7 @@ onSubmit(){
     this.updateStudent();
   } else {
 
-    this.addStudent();
+    this.addStudent(this.numerot);
   }
   }
   else{

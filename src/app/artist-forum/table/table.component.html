@@ -1,63 +1,64 @@
 
 <mat-card>
-<mat-card-title> Create Forum</mat-card-title>
-  <mat-card-content>
-    <div>
-      <mat-divider></mat-divider>
-      <form    (submit)="onSubmit()"  #ForumForm='ngForm' style="padding: 10px">
-        <mat-form-field style="padding-right: 15px">
-          <input matInput  placeholder="ForumName" name="ForumName" required
-                 [(ngModel)]="forumdata.ForumName">
-          <mat-error>Es requerido</mat-error>
-        </mat-form-field>
+  <mat-card-title> Create Forum</mat-card-title>
+    <mat-card-content>
+      <div>
+        <mat-divider></mat-divider>
+        <form    (submit)="onSubmit()"  #ForumForm='ngForm' style="padding: 10px">
+          <mat-form-field style="padding-right: 15px">
+            <input matInput  placeholder="ForumName" name="ForumName" required
+                   [(ngModel)]="forumdata.forumName">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
 
-        <mat-form-field style="padding-right: 15px">
-          <input matInput placeholder="ForumDescription" name="ForumDescription" required
-                 [(ngModel)]="forumdata.ForumDescription">
-          <mat-error>Es requerido</mat-error>
-        </mat-form-field>
-
-
-        <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
-
-        <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
-
-      </form>
-
-      <mat-divider></mat-divider>
-    </div>
-
-    <mat-table  [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> #id</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="ForumName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>  #ForumName</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.ForumName }}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="ForumDescription" >
-        <mat-header-cell *matHeaderCellDef mat-sort-header> #ForumDescription</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.ForumDescription }}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="editItem(row)"><mat-icon>launch</mat-icon></button>
-          <button mat-icon-button (click)="deleteItem(row.id)"><mat-icon>delete_outline</mat-icon></button>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="loading">
-        <mat-footer-cell *matFooterCellDef> Loading Data</mat-footer-cell>
-
-      </ng-container>
-      <mat-header-row  *matHeaderRowDef="displayedColumns" ></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-form-field style="padding-right: 15px">
+            <input matInput placeholder="ForumDescription" name="ForumDescription" required
+                   [(ngModel)]="forumdata.forumDescription">
+            <mat-error>Es requerido</mat-error>
+          </mat-form-field>
 
 
-    </mat-table>
-    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
+          <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
 
-  </mat-card-content>
-</mat-card>
+          <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
+
+        </form>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-table  [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #id</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ForumName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>  #ForumName</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.forumName }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ForumDescription" >
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #ForumDescription</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.forumDescription }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editItem(row)"><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button (click)="deleteItem(row.id)"><mat-icon>delete_outline</mat-icon></button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="loading">
+          <mat-footer-cell *matFooterCellDef> Loading Data</mat-footer-cell>
+
+        </ng-container>
+        <mat-header-row  *matHeaderRowDef="displayedColumns" ></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+      </mat-table>
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
+
+    </mat-card-content>
+  </mat-card>
+
 

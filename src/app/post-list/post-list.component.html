@@ -10,10 +10,11 @@
   <div *ngFor="let a of studentData">
     <br/>
     <app-post
-      [titlePart]="a.UserID"
-      [textPart]="a.PublicationDescription"
+      [titlePart]="a.artist.id"
+      [textPart]="a.publicationDescription"
+      [fullPost]="a"
     >
     </app-post>
-    <app-comment-form></app-comment-form>
+    <app-comment-form [postId]="a.id"></app-comment-form>
   </div>
 </div>

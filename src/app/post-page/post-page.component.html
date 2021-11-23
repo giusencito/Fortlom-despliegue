@@ -1,4 +1,11 @@
-<app-navigation></app-navigation>
-<app-post-form></app-post-form>
-<br/>
-<app-post-list></app-post-list>
+<div *ngIf="isHidden">
+  <app-navigation></app-navigation>
+  </div>
+  <div *ngIf="!isHidden">
+    <app-ArtistNavegation></app-ArtistNavegation>
+  </div>
+  <div *ngIf="!isHidden">
+  <app-post-form></app-post-form>
+  </div>
+  <br/>
+  <app-post-list></app-post-list>

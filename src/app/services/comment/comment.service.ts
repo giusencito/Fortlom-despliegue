@@ -9,8 +9,9 @@ import {Comment} from "../../models/comment";
 })
 export class CommentService {
 
-basePath = 'http://localhost:3000/Comment';
-
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/comments';
+basePath2= 'https://fortlom-backend.herokuapp.com/api/v1/users'
+basePath3='https://fortlom-backend.herokuapp.com/api/v1/publications'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -33,8 +34,8 @@ handleError(error: HttpErrorResponse) {
 }
 
 // Create Comment
-create(item: any): Observable<Comment> {
-  return this.http.post<Comment>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(item: any,userId:number,publicationId:number): Observable<Comment> {
+  return this.http.post<Comment>(`${this.basePath2}/${userId}/publications/${publicationId}/comments`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -63,7 +64,14 @@ update(id: any, item: any): Observable<Comment> {
       retry(2),
       catchError(this.handleError));
 }
+getallcommentsbypublication(id:number){
 
+  return this.http.get<Comment>(`${this.basePath3}/${id}/comments`, this.httpOptions)
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
+
+}
 // Delete Comment
 delete(id: any) {
   return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
