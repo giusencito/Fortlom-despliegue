@@ -35,10 +35,13 @@ import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
+import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
+import { RateComponent } from './rate/rate.component';
 
 
 @NgModule({
-  declarations: [		
+  declarations: [					
     AppComponent,
     HomeComponent,
 
@@ -66,7 +69,10 @@ import { ConfigurationFanaticComponent } from './configuration-fanatic/configura
       ForumPageComponent,
       UserInformationforForumComponent,
       ConfigurationComponent,
-      ConfigurationFanaticComponent
+      ConfigurationFanaticComponent,
+      ArtistForumsComponent,
+      ArtistListComponent,
+      RateComponent
    ],
   imports: [
     BrowserModule,

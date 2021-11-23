@@ -9,7 +9,8 @@ import {Follow} from "../../models/follow";
 })
 export class FollowService {
 
-basePath = 'http://localhost:3000/Follow';
+basePath = 'http://localhost:8080/api/v1/follows';
+basePatn2='http://localhost:8080/api/v1/fanatics';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,19 +23,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Follow
-create(item: any): Observable<Follow> {
-  return this.http.post<Follow>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(fanaticid:number,artistid:number,item: any): Observable<Follow> {
+  return this.http.post<Follow>(`${this.basePatn2}/${fanaticid}/artists/${artistid}/follows`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -58,7 +59,7 @@ getAll(): Observable<Follow> {
 
 // Update Follow
 update(id: any, item: any): Observable<Follow> {
-  return this.http.post<Follow>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Follow>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
