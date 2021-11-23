@@ -7,13 +7,13 @@
 <mat-card-title>Create Forum</mat-card-title>
 <mat-card-header>
 <h2>Insert name:</h2>
-<input formControlName="name" class="con" [(ngModel)]="Forum.ForumName"  type="name"  id="exampleInputalias" placeholder="Forum Name" required>
+<input formControlName="name" class="con" [(ngModel)]="Forum.forumName"  type="name"  id="exampleInputalias" placeholder="Forum Name" required>
       <mat-error  *ngIf="createform.controls['name'].dirty && createform.hasError('required','name')">Es requerido</mat-error>
 
 </mat-card-header>
 <mat-form-field appearance="fill" class="area" >
   <mat-label>Description </mat-label>
-  <textarea formControlName="description" [(ngModel)]="Forum.ForumDescription" matInput type="description"></textarea>
+  <textarea formControlName="description" [(ngModel)]="Forum.forumDescription" matInput type="description"></textarea>
 </mat-form-field>
 <mat-card-footer align="end">
 

@@ -17,7 +17,8 @@ export class FanaticForumCreateComponent implements OnInit {
   dataSource !:MatTableDataSource<any>;
   constructor(private formBuilder:FormBuilder,private service:ForumService,private route:ActivatedRoute,private cd:Router) {
 this.Forum={}as Forum;
-this.Forum.ForumName
+this.Forum.forumName;
+
 this.dataSource = new MatTableDataSource<any>();
    }
 
@@ -26,24 +27,34 @@ this.dataSource = new MatTableDataSource<any>();
       name:['',Validators.required],
       description:['',Validators.required],
      })
-     let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+     let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
+    let sa=(this.route.snapshot.url[0].path);
+    console.log(sa)
   }
 
 crearforo(){
-this.Forum.usuario=this.idnumber
 
-this.AddForum()
+//this.Forum.user.id=this.idnumber
 
-this.cd.navigate(['/HomeFanatic',this.idnumber])
+this.AddForum(this.idnumber)
+let pod=(this.route.snapshot.url[0].path);
+if (pod=='HomeArtist'){
+  this.cd.navigate(['/HomeArtist',this.idnumber])
+}
+else{
+  this.cd.navigate(['/HomeFanatic',this.idnumber])
+}
+
 
 }
 
 
-AddForum(){
+AddForum(id:number){
 
-  this.service.create(this.Forum).subscribe((response: any) => {
+
+  this.service.create(this.Forum,id).subscribe((response: any) => {
     this.dataSource.data.push( {...response});
     this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
   });

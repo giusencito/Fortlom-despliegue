@@ -21,9 +21,7 @@ import { CommentFormComponent } from './comment-form/comment-form.component';
 import { PostComponent } from './post/post.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostListComponent } from './post-list/post-list.component';
-import { ArtistForumComponent } from './artist-forum/artist-forum.component';
-import { TableComponent } from './artist-forum/table/table.component';
-import { NavbarComponent } from './artist-forum/navbar/navbar.component';
+
 import { NavigationComponent } from './navigation/navigation.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { LoginComponent } from './Login/Login.component';
@@ -39,12 +37,12 @@ import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
 
 @NgModule({
-  declarations: [											
+  declarations: [
     AppComponent,
     HomeComponent,
 
     FanaticForumComponent,
-    
+
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
@@ -54,9 +52,7 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
     CommentFormComponent,
     PostFormComponent,
     PostListComponent,
-    ArtistForumComponent,
-    TableComponent,
-    NavbarComponent,
+    
     NavigationComponent,
     SkeletonComponent,
       LoginComponent,
