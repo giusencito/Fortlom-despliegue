@@ -1,3 +1,8 @@
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
+import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
@@ -19,17 +24,29 @@ import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 
 
 const routes: Routes = [
-{path:'',component:LoginComponent},
-{path:'login',component:LoginComponent},
-{path : 'Home', component: HomeComponent},
-{path:'Event',component:EventComponent},
-{path:'registerartist',component:ArtistRegisterComponent},
-{path:'registerfanatic',component:FanaticRegisterComponent},
-{path:'HomeArtist/:artistid',component:HomeArtistComponent},
-{path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/ForumPage/:forumid',component:ForumPageComponent}
+  {path:'',component:LoginComponent},
+  {path:'login',component:LoginComponent},
+  {path : 'Home', component: HomeComponent},
+  {path:'Event',component:EventComponent},
+  {path:'Posts',component:PostPageComponent},
+  {path:'registerartist',component:ArtistRegisterComponent},
+  {path:'registerfanatic',component:FanaticRegisterComponent},
+  {path:'HomeArtist/:id',component:HomeArtistComponent},
+  {path:'HomeArtist/:id/ArtistForum',component:ArtistForumsComponent},
+  {path:'HomeArtist/:id/ArtistForum/CreateForum',component:FanaticForumCreateComponent},
+  {path:'HomeArtist/:id/ArtistForum/ForumPage/:forumid',component:ForumPageComponent},
+  {path:'HomeFanatic/:id/ConfigureFanatic',component:ConfigurationFanaticComponent},
+  {path:'HomeFanatic/:id',component:HomeFanaticComponent},
+  {path:'HomeFanatic/:id/FanaticForum',component:FanaticForumComponent},
+  {path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
+  {path:'HomeFanatic/:id/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
+  {path:'HomeFanatic/:id/Event',component:EventFanaticComponent},
+  {path:'HomeArtist/:id/Event',component:EventComponent},
+  {path: 'HomeArtist/:id/ConfigureArtist',component:ConfigurationComponent},
+  {path: 'artist/:artistid/posts', component:PostPageComponent},
+  {path: 'HomeArtist/:id/posts',component:PostPageComponent},
+  {path: 'HomeFanatic/:id/posts',component:PostPageComponent},
+  {path:'HomeFanatic/:id/artists',component:ArtistListComponent},
 ];
 
 @NgModule({

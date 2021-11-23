@@ -38,10 +38,11 @@ import { ConfigurationFanaticComponent } from './configuration-fanatic/configura
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { ArtistListComponent } from './artist-list/artist-list.component';
 import { RateComponent } from './rate/rate.component';
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
 
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
     HomeComponent,
 
@@ -72,7 +73,8 @@ import { RateComponent } from './rate/rate.component';
       ConfigurationFanaticComponent,
       ArtistForumsComponent,
       ArtistListComponent,
-      RateComponent
+      RateComponent,
+      EventFanaticComponent
    ],
   imports: [
     BrowserModule,
