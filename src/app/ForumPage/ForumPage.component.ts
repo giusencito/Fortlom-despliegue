@@ -73,8 +73,8 @@ export class ForumPageComponent implements OnInit {
 
       this.usuario=response;
        console.log(this.usuario);
-       this.username=this.usuario.Name
-       this.userlastname=this.usuario.LastName;
+       this.username=this.usuario.name
+       this.userlastname=this.usuario.lastName;
 
     });
 

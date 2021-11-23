@@ -65,7 +65,7 @@ export class ArtistRegisterComponent implements OnInit {
 
   }
   onSubmit(){
-   this.user.Registration=this.date
+   
    this.artist.Followers=0
    this.artist.Tag=0
    let artistid=this.dataSource.data.length+1

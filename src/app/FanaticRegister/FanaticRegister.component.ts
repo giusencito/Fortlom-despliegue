@@ -67,7 +67,7 @@ export class FanaticRegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    this.user.Registration=this.date
+    
     let fanaticid=this.dataSource.data.length+1
     this.Fanatic.id=fanaticid
     this.registerUser()

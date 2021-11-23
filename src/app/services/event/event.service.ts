@@ -9,8 +9,9 @@ import {Event} from "../../models/event";
 })
 export class EventService {
 
-basePath = 'http://localhost:3000/Event';
-
+basePath = 'http://localhost:8080/api/v1/event';
+BasePath=  'http://localhost:8080/api/v1/events';
+basepathcreate='http://localhost:8080/api/v1/artist';
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -22,19 +23,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Event
-create(item: any): Observable<Event> {
-  return this.http.post<Event>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(artistid:number,item: any): Observable<Event> {
+  return this.http.post<Event>(`${this.basepathcreate}/${artistid}/events`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -50,7 +51,7 @@ getById(id: any): Observable<Event> {
 
 // Get All Events
 getAll(): Observable<Event> {
-  return this.http.get<Event>(this.basePath, this.httpOptions)
+  return this.http.get<Event>(this.BasePath, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -73,3 +74,4 @@ delete(id: any) {
 }
 
 }
+
