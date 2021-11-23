@@ -8,12 +8,15 @@ import { Forum } from '../models/forum';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario/usuario.service';
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-ForumPage',
   templateUrl: './ForumPage.component.html',
-  styleUrls: ['./ForumPage.component.css']
+  styleUrls: ['./ForumPage.component.css'],
+  providers: [DatePipe]
 })
 export class ForumPageComponent implements OnInit {
+  isHidden=true
   forum!:Forum
   forumname!:string;
   usuario!:Usuario
@@ -26,12 +29,12 @@ export class ForumPageComponent implements OnInit {
   dataSource1 !:MatTableDataSource<any>;
   idactualuser!:number
   date!:Date
-  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService,private formBuilder:FormBuilder,private servecommen:ForumcommentService) {
+  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService,private formBuilder:FormBuilder,private servecommen:ForumcommentService,public datepipe: DatePipe) {
    this.forum={}as Forum
    this.usuario={}as Usuario
    this.Forumcomment={}as Forumcomment
    this.dataSource1 = new MatTableDataSource<any>();
-   this.date=new Date()
+
    }
 
   ngOnInit() {
@@ -39,7 +42,7 @@ export class ForumPageComponent implements OnInit {
     let id= pod;
     this.idforum=id;
     this.getidforum(this.idforum)
-    let pad=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let pad=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id2= pad;
     this.idactualuser=id2;
     this.newcommentform=this.formBuilder.group({
@@ -57,11 +60,12 @@ export class ForumPageComponent implements OnInit {
     this.service.getById(id).subscribe((response:any)=>{
 
      this.forum=response;
-      console.log(this.forum);
-      this.forumname=this.forum.ForumName;
-      this.forumdescription=this.forum.ForumDescription
-      console.log(this.forum.usuario)
-      this.getidUser(this.forum.usuario)
+     console.log("inicio");
+      //console.log(this.forum);
+      this.forumname=this.forum.forumName;
+      this.forumdescription=this.forum.forumDescription
+      //console.log(this.forum.user)
+      this.getidUser(this.forum.user.id)
 
     });
 
@@ -72,18 +76,18 @@ export class ForumPageComponent implements OnInit {
     this.service2.getById(id).subscribe((response:any)=>{
 
       this.usuario=response;
-       console.log(this.usuario);
-       this.username=this.usuario.Name
-       this.userlastname=this.usuario.LastName;
+       //console.log(this.usuario);
+       this.username=this.usuario.name
+       this.userlastname=this.usuario.lastName;
 
     });
 
 
   }
 
-  NewForumComment(){
+  NewForumComment(userid:number,forumid:number){
 
-    this.servecommen.create(this.Forumcomment).subscribe((response: any) => {
+    this.servecommen.create(this.Forumcomment,userid,forumid).subscribe((response: any) => {
       this.dataSource1.data.push( {...response});
       this.dataSource1.data = this.dataSource1.data.map((o: any) => { return o; });
       alert("se agrego un comentario")
@@ -94,12 +98,15 @@ export class ForumPageComponent implements OnInit {
   }
 
 crearcomentariodeforo(){
-
-this.Forumcomment.UsuarioId=this.idactualuser
-this.Forumcomment.Date=this.date
-this.Forumcomment.ForumId=this.idforum
-this.NewForumComment()
-this.newcommentform.reset();
+  this.date=new Date();
+//this.Forumcomment.user=this.idactualuser
+let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd')!;
+this.Forumcomment.date=latest_date
+//this.Forumcomment.forum=this.idforum
+console.log(this.Forumcomment)
+console.log(this.idactualuser,this.idforum)
+this.NewForumComment(this.idactualuser,this.idforum)
+//this.newcommentform.reset();
 
 
 
@@ -113,6 +120,94 @@ this.newcommentform.reset();
 
 
 }
+
+
+getartists(){
+
+  this.service.getAll().subscribe((response: any)=>{
+
+    const ap=response.content.find((a:any)=>{
+      console.log('idactual')
+        console.log(a.id)
+        console.log('requerido')
+        console.log(this.idactualuser)
+        return  a.id === this.idactualuser
+
+
+
+    })
+
+    if(ap){
+
+      this.isHidden=false
+
+    }
+
+
+
+
+
+
+   })
+
+
+
+  }
+getfanatic(){
+
+this.service2.getAll().subscribe((response: any)=>{
+
+  const ap=response.content.find((a:any)=>{
+    console.log('idactual')
+      console.log(a.id)
+      console.log('requerido')
+      console.log(this.idactualuser)
+      return  a.id === this.idactualuser
+
+
+
+  })
+
+  if(ap){
+
+    this.isHidden=true
+
+  }
+
+
+
+
+
+
+ })
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

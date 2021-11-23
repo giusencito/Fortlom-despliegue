@@ -3,7 +3,7 @@ import {Artist} from "./artist";
 
 export interface Rate {
     id: number;
-    rate: number;
+    rates: number;
     artist: Artist;
-    fanatic: Fanatic; 
+    fanatic: Fanatic;
 }

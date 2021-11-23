@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Fraud Report</h1>
+<div mat-dialog-content>
+  <p>What's wrong with this post?</p>
+
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="createReport(data.id,data.description)" cdkFocusInitial>Ok</button>
+</div>

@@ -1,4 +1,11 @@
+
+<div *ngIf="!isHidden">
 <app-navigation></app-navigation>
+</div>
+
+<div *ngIf="isHidden">
+  <app-ArtistNavegation></app-ArtistNavegation>
+</div>
 
 <mat-card class="card">
   <mat-card-header class="head">
@@ -21,7 +28,7 @@
   <mat-card-title class="title">Escriba un comentario</mat-card-title>
   <mat-form-field appearance="fill" class="area" [formGroup]="newcommentform">
     <mat-label>Nuevo Comentario </mat-label>
-    <textarea formControlName="comment" matInput type="comment" [(ngModel)]="Forumcomment.CommentDescription"></textarea>
+    <textarea formControlName="comment" matInput type="comment" [(ngModel)]="Forumcomment.forumCommentDescription"></textarea>
   </mat-form-field>
   <div class="button-row">
     <button mat-raised-button  color="primary" [disabled]="!newcommentform.valid" (click)="crearcomentariodeforo()"> <mat-icon>add</mat-icon>Aceptar</button>

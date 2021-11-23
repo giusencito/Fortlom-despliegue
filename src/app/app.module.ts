@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DemoMaterialModule } from './material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
 import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
@@ -37,14 +37,21 @@ import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
 import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
+import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
+import {FraudReportComponent, FraudReportDialog} from "./fraud-report/fraud-report.component";
+import { RateComponent } from './rate/rate.component';
+import { FollowComponent } from './follow/follow.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
 
 @NgModule({
-  declarations: [											
+  declarations: [
     AppComponent,
     HomeComponent,
 
     FanaticForumComponent,
-    
+
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
@@ -69,7 +76,16 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
       ForumPageComponent,
       UserInformationforForumComponent,
       Posts2Component,
-      CommentTableComponent
+      CommentTableComponent,
+      ArtistForumsComponent,
+      ConfigurationFanaticComponent,
+      ConfigurationComponent,
+      EventFanaticComponent,
+      FraudReportComponent,
+      FraudReportDialog,
+      RateComponent,
+      FollowComponent,
+      ArtistListComponent
    ],
   imports: [
     BrowserModule,

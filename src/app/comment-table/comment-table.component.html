@@ -8,19 +8,19 @@
         <form    (submit)="onSubmit()"  #EventForm='ngForm' style="padding: 10px">
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert comment description" name="EventDescription" required
-                   [(ngModel)]="commentdata.CommentDescription">
+                   [(ngModel)]="commentdata.commentDescription">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert user id" name="ArtistID" required
-                   [(ngModel)]="commentdata.UsuarioId">
+                   [(ngModel)]="iduser">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert post id" name="Likes" required
-                   [(ngModel)]="commentdata.PublicationID">
+                   [(ngModel)]="idpublic">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
@@ -42,15 +42,15 @@
         </ng-container>
         <ng-container matColumnDef="CommentDescription">
           <mat-header-cell *matHeaderCellDef mat-sort-header>  #CommentDescription</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.CommentDescription }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ element.commentDescription }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="PublicationID" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> #PostID</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.PublicationID }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{getPublicId(element.id) }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="UsuarioId" >
           <mat-header-cell *matHeaderCellDef mat-sort-header> #UserID</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{ element.UsuarioId }}</mat-cell>
+          <mat-cell *matCellDef="let element">{{ getUserId(element.id) }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="actions">

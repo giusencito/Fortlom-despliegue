@@ -1,0 +1,18 @@
+<app-ArtistNavegation></app-ArtistNavegation>
+
+<div align="end" class="mats">
+
+  <button mat-fab class="add" (click)="insertforum()"><mat-icon>add</mat-icon></button>
+
+
+  </div>
+
+  <div *ngFor="let element of dataSource.data">
+  <mat-card class="card">
+    <mat-card-title class="title">{{element.forumName}}</mat-card-title>
+    <mat-card-actions align="end">
+      <button mat-button (click)="enterforumpage(element.id)"><mat-icon>flag</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+
+  </div>

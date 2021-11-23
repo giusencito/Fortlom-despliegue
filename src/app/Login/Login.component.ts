@@ -34,22 +34,32 @@ export class LoginComponent implements OnInit {
 
 
      })
+    this.getAllUsers();
   }
 onSubmit(){
 this.getUser()
   }
+getAllUsers(){
+    this.service.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      console.log("datos");
+      console.log(response.content)
+      console.log(this.dataSource.data.length)
+    });
 
+
+  }
   getUser(){
 
     this.service.getAll()
     .subscribe((response: any)=>{
-       const ap=response.find((a:any)=>{
-          console.log(a.Email);
+       const ap=response.content.find((a:any)=>{
+         console.log(a.Email);
          console.log(this.loginform.value.email)
-         console.log(a.Password)
+         console.log(a.password)
          console.log(this.loginform.value.password)
          this.iddepaso=a.id;
-          return a.Email === this.loginform.value.email && a.Password===this.loginform.value.password;
+          return a.email === this.loginform.value.email && a.password===this.loginform.value.password;
        });
         if(ap){
         alert("Login successfully");
@@ -76,7 +86,7 @@ this.getUser()
   console.log('busqueda de artista')
    this.serivcearti.getAll().subscribe((response: any)=>{
 
-    const ap=response.find((a:any)=>{
+    const ap=response.content.find((a:any)=>{
       console.log('idactual')
         console.log(a.id)
         console.log('requerido')
@@ -107,15 +117,11 @@ this.getUser()
     console.log('busqueda de fanatico')
      this.servicefana.getAll().subscribe((response: any)=>{
 
-      const ap=response.find((a:any)=>{
+      const ap=response.content.find((a:any)=>{
         console.log('idactual')
           console.log(a.id)
           console.log('requerido')
           console.log(this.iddepaso)
-          return  a.id === this.iddepaso
-
-
-
       })
 
       if(ap){
