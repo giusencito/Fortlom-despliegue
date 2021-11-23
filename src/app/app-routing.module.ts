@@ -15,16 +15,14 @@ import { EventComponent } from './event/event.component';
 import { PostPageComponent } from './post-page/post-page.component';
 
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
-import { Posts2Component } from "./posts2/posts2.component";
-import {CommentTableComponent} from "./comment-table/comment-table.component";
+
+
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'login',component:LoginComponent},
 {path : 'Home', component: HomeComponent},
 {path:'Event',component:EventComponent},
-{path:'Posts',component:Posts2Component},
-{path:'Comments',component:CommentTableComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
 {path:'registerfanatic',component:FanaticRegisterComponent},
 {path:'HomeArtist/:artistid',component:HomeArtistComponent},

@@ -1,10 +1,11 @@
-import { Usuario } from "./usuario";
+import { Artist } from './artist';
+
 
 export interface Publicacion {
     id:number;
-    PublicationName:string;
-    PublicationDescription:string;
-    Likes:number;
-    Date: string;
-    UserID: Usuario;
+    publicationName:string;
+    publicationDescription:string;
+    likes:number;
+    date: string;
+    artist: Artist;
 }

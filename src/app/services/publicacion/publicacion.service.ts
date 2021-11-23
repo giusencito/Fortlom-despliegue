@@ -9,7 +9,8 @@ import {Publicacion} from "../../models/publicacion";
 })
 export class PublicacionService {
 
-basePath = 'http://localhost:3000/Publicacion';
+basePath = 'http://localhost:8080/api/v1/publications';
+basepath2= 'http://localhost:8080/api/v1/artists';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -33,8 +34,8 @@ handleError(error: HttpErrorResponse) {
 }
 
 // Create Publicacion
-create(item: any): Observable<Publicacion> {
-  return this.http.post<Publicacion>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(item: any,id:number): Observable<Publicacion> {
+  return this.http.post<Publicacion>(`${this.basepath2}/${id}/publications`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -73,3 +74,4 @@ delete(id: any) {
 }
 
 }
+

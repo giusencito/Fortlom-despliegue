@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {UsuarioService} from "../services/usuario/usuario.service";
 
 @Component({
   selector: 'app-comment',
@@ -10,14 +11,24 @@ export class CommentComponent implements OnInit {
   @Input()
   customTitle: string;
   @Input()
-  customText: String;
+  customText: string;
+  @Input()
+  userId: Number; //change
 
-  constructor() {
+  userInfo: any;
+
+  constructor(private userService: UsuarioService) {
     this.customTitle = "...";
     this.customText = "...";
+    this.userId = 0//change
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { //changed all inside this
+    this.userService.getById(this.userId)
+      .subscribe((response: any) => {
+        this.userInfo = response;
+    })
   }
 
 }
+

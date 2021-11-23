@@ -25,8 +25,9 @@ export class PostListComponent implements OnInit {
 
   getPosts(): void {
     this.postService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.studentData = this.dataSource.data;
+      console.log(this.studentData)
       this.haveInfo = true;
     });
   }
