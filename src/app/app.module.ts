@@ -37,9 +37,17 @@ import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
 import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
+import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
+import { FollowComponent } from './follow/follow.component';
+import { FraudReportComponent } from './fraud-report/fraud-report.component';
+import { RateComponent } from './rate/rate.component';
 
 @NgModule({
-  declarations: [											
+  declarations: [																			
     AppComponent,
     HomeComponent,
 
@@ -69,7 +77,15 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
       ForumPageComponent,
       UserInformationforForumComponent,
       Posts2Component,
-      CommentTableComponent
+      CommentTableComponent,
+      ArtistListComponent,
+      ArtistForumsComponent,
+      ConfigurationComponent,
+      ConfigurationFanaticComponent,
+      EventFanaticComponent,
+      FollowComponent,
+      FraudReportComponent,
+      RateComponent
    ],
   imports: [
     BrowserModule,
