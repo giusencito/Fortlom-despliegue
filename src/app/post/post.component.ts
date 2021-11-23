@@ -71,7 +71,7 @@ export class PostComponent implements OnInit {
 
   getComments(id:any): void {
     id = Number(id);
-    this.commentService.getallcommentsbypublication(id).subscribe((response: any) => {
+    this.commentService.getallcommentsbypublication(this.fullPost.id).subscribe((response: any) => {
       this.dataSource.data = response.content;
       this.studentData = this.dataSource.data;
       //this.haveInfo = true;
