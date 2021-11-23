@@ -33,15 +33,18 @@ export class FanaticForumcommentComponent implements OnInit {
   searchKey!:string;
   isEditMode = false;
   paso:string="vacio";
-  myDate : Date;
+  myDate !: Date;
   proDate = new Date();
   proDatevalue!:string;
+  userid!:number
+  forumid!:number
+  latest_date!:string
   constructor(private service:ForumcommentService,private serviceext:ForumService,private datePipe: DatePipe) {
      this.commentdata={} as Forumcomment;
      this.commentdatabyid={} as Forumcomment;
      this.forumbyid={}as Forum;
      this.dataSource=new MatTableDataSource<any>();
-     this.myDate=new Date();
+
 
   }
 
@@ -50,27 +53,29 @@ export class FanaticForumcommentComponent implements OnInit {
 
     console.log(this.comentarios)
     //this.getAllcommentsperaforum() cambiar despues de la tb3
-    console.log(this.paso)
-    this.getAllComments()//cambiar despues de exponer
+    //console.log(this.paso)
+    //this.getAllComments()//cambiar despues de exponer
+    this.getAllcommentsperaforum()
 
   }
 
   getAllComments(){
     this.service.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.sort=this.sort;
       this.dataSource.paginator=this.paginator;
       console.log("datos");
-      console.log(response)
+      console.log(this.dataSource.data)
 
     });
 
 
   }
   getAllcommentsperaforum(){
+    console.log(this.comentarios)
     this.service.getallcommentsperforum(this.comentarios).subscribe((response: any) => {
-      this.dataSource.data = response;
-      console.log(response)
+      this.dataSource.data = response.content;
+      console.log(this.dataSource.data)
     });
 
 
@@ -78,7 +83,7 @@ export class FanaticForumcommentComponent implements OnInit {
 
 getname(){
 
- this.paso=this.forumbyid.ForumName;
+ this.paso=this.forumbyid.forumName;
   return this.paso;
 }
 getidComment(id:number){
@@ -86,7 +91,7 @@ getidComment(id:number){
 this.service.getById(id).subscribe((response:any)=>{
 
   this.commentdatabyid=response;
-  console.log(this.commentdatabyid.ForumId);
+  console.log(this.commentdatabyid.forum);
 
 });
 
@@ -142,9 +147,9 @@ this.fecha=sr;
 
 
 
-addcomment(){
+addcomment(userid:number,forumid:number){
 
-  this.service.create(this.commentdata).subscribe((response: any) => {
+  this.service.create(this.commentdata,userid,forumid).subscribe((response: any) => {
     this.dataSource.data.push( {...response});
     this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
   });
@@ -169,33 +174,40 @@ updatecomment() {
 
 getfechacomment(fecha:Date){
 
-console.log("fecha")
-console.log(fecha)
+
 
 
 this.proDate=fecha
-console.log(this.proDate)
+
 this.proDatevalue = this.datePipe.transform(fecha, 'yyyy-MM-dd')!;
 
 
 return this.proDatevalue
 
 }
+getUserId(id :number){
 
+
+  return this.dataSource.data[id-1].user.id
+
+
+  }
 
 
 
 
 onSubmit(){
-this.commentdata.Date=this.myDate
+this.myDate=new Date();
+this.latest_date =this.datePipe.transform(this.myDate, 'yyyy-MM-dd')!;
+this.commentdata.date=this.latest_date
   if (this.commentdataForm.form.valid) {
     console.log(this.commentdata );
     if (this.isEditMode) {
       console.log("se actualiza")
       this.updatecomment();
     } else {
-
-      this.addcomment();
+      this.userid=1
+      this.addcomment(this.userid,this.forumid);
     }
     }
     else{

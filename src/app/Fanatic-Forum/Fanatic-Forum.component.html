@@ -2,7 +2,7 @@
 
 <app-navigation></app-navigation>
 
-
+<!--
 <div class="table-card">
 <mat-card>
 <mat-card-title> Create Forum</mat-card-title>
@@ -12,12 +12,12 @@
 <form (submit)="onSubmit()"  #ForumForm='ngForm' style="padding: 10px">
   <mat-form-field style="padding-right: 15px">
     <input matInput  placeholder="ForumName" name="ForumName" required
-           [(ngModel)]="forumdata.ForumName">
+           [(ngModel)]="forumdata.forumName">
     <mat-error>Es requerido</mat-error>
   </mat-form-field>
   <mat-form-field style="padding-right: 15px">
     <input matInput placeholder="ForumDescription" name="ForumDescription" required
-           [(ngModel)]="forumdata.ForumDescription">
+           [(ngModel)]="forumdata.forumDescription">
     <mat-error>Es requerido</mat-error>
   </mat-form-field>
   <button mat-raised-button  color="primary" type="submit"  style="margin-right: 15px"> <mat-icon>add</mat-icon>Aceptar</button>
@@ -36,11 +36,11 @@
   </ng-container>
   <ng-container matColumnDef="ForumName">
     <mat-header-cell *matHeaderCellDef mat-sort-header>  #ForumName</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.ForumName }}</mat-cell>
+    <mat-cell *matCellDef="let element">{{ element.forumName }}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="ForumDescription" >
     <mat-header-cell *matHeaderCellDef mat-sort-header> #ForumDescription</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.ForumDescription }}</mat-cell>
+    <mat-cell *matCellDef="let element">{{ element.forumDescription }}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
@@ -71,6 +71,7 @@
 </div>
 
 
+--->
 
 
 
@@ -89,10 +90,10 @@
 
 
 
-<app-Fanatic-Forumcomment></app-Fanatic-Forumcomment>
 
 
-<!--
+
+
 <div align="end" class="mats">
 
 <button mat-fab class="add" (click)="insertforum()"><mat-icon>add</mat-icon></button>
@@ -102,7 +103,7 @@
 
 <div *ngFor="let element of dataSource.data">
 <mat-card class="card">
-  <mat-card-title class="title">{{element.ForumName}}</mat-card-title>
+  <mat-card-title class="title">{{element.forumName}}</mat-card-title>
   <mat-card-actions align="end">
     <button mat-button (click)="enterforumpage(element.id)"><mat-icon>flag</mat-icon></button>
   </mat-card-actions>
@@ -112,5 +113,5 @@
 
 
 
---->
+
 

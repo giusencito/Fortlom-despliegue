@@ -38,42 +38,61 @@ export class FanaticRegisterComponent implements OnInit {
 
      })
      this.getAllUsers()
+     this.getAllfanatics();
   }
   registerUser(){
 
     this.service2.create(this.user).subscribe((response: any) => {
-      this.dataSource.data.push( {...response});
-      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+      console.log(response.content);
+
     });
 
 
   }
+
+
   getAllUsers(){
     this.service2.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
-      console.log(response)
+      this.dataSource.data = response.content;
+      console.log( this.dataSource.data)
     });
 
 
   }
+
+  getAllfanatics(){
+    this.service.getAll().subscribe((response: any) => {
+      console.log("fanaticos")
+      this.dataSource2.data = response.content;
+      
+    });
+
+
+  }
+
+
   registerFanatic(){
 
+
     this.service.create(this.Fanatic).subscribe((response: any) => {
-      this.dataSource2.data.push( {...response});
-      this.dataSource2.data = this.dataSource2.data.map((o: any) => { return o; });
+      this.signupform.reset();
+      this.route.navigate(['/login'])
     });
 
 
   }
 
   onSubmit(){
-    this.user.Registration=this.date
+
     let fanaticid=this.dataSource.data.length+1
     this.Fanatic.id=fanaticid
+    console.log(this.Fanatic)
     this.registerUser()
     this.registerFanatic()
-    this.signupform.reset();
-    this.route.navigate(['/login'])
+    console.log( )
+    console.log( this.dataSource2.data)
+    console.log( this.dataSource.data)
+
   }
 
 

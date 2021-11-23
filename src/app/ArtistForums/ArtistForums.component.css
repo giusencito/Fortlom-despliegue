@@ -1,0 +1,39 @@
+.button-row button{
+
+  margin:10px;
+
+  }
+  .search-form-field
+  {
+
+    margin:20px;
+  }
+  .title{
+
+    color:#0B50C0;
+  }
+  .card
+  {
+    background-color:#C8C8C8;
+    margin-bottom: 20px;
+  }
+  .add
+
+  {
+    margin-top: 20px;
+    background-color:black;
+    margin-bottom: 20px;
+  }
+  .table-card{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   margin-top: 20%;
+  }
+  .mats
+  {
+
+    margin-top: 10%;
+
+  }

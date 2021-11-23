@@ -1,8 +1,14 @@
+import { UsuarioService } from './../services/usuario/usuario.service';
 import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {CommentService} from "../services/comment/comment.service";
-import {CommentComponent} from "../comment/comment.component";
-import {CommonModule} from "@angular/common";
+import {PublicacionService} from "../services/publicacion/publicacion.service";
+import {ReportService} from "../services/report/report.service";
+import {MultimediaService} from "../services/multimedia/multimedia.service";
+import {ActivatedRoute} from "@angular/router";
+import { Usuario } from '../models/usuario';
+import { Report } from '../models/report';
+
 
 @Component({
   selector: 'app-post',
@@ -11,37 +17,78 @@ import {CommonModule} from "@angular/common";
 })
 export class PostComponent implements OnInit {
 
+  aux: any;
   studentData: any;
   dataSource: MatTableDataSource<any>;
   haveInfo = false;
-  @Input()
-  textPart = "..."
-  @Input()
-  titlePart = "..."
+  havePosts = false;
+  report!:Report
+  orderedMultimedia:any = [];
+  relatedUser!: Usuario;
 
-  constructor(private commentService: CommentService) {
+  @Input()
+  textPart = "...";
+  @Input()
+  titlePart = "...";
+  @Input()
+  fullPost : any;
+
+  constructor(private commentService: CommentService,
+              private postService: PublicacionService,
+              private reportService: ReportService,
+              private multimediaService: MultimediaService,
+              private usuarioservice: UsuarioService,
+              private $route: ActivatedRoute) {
+    this.report={}as Report
     this.studentData = {}
     this.dataSource = new MatTableDataSource<any>();
     this.haveInfo = false;
+    this.havePosts = false;
   }
 
   ngOnInit(): void {
+    this.multimediaService.getallmultimediabypublication(this.fullPost.id) //changed
+      .subscribe((response: any) => {
+        this.orderedMultimedia = response.content;
+        console.log(this.orderedMultimedia);
+        this.haveInfo = true;
+      })
+    this.usuarioservice.getById(this.fullPost.artist.id)
+      .subscribe((response: any) => {
+        this.relatedUser = response;
+        console.log("artista")
+        console.log(this.relatedUser);
+      })
   }
 
   likePost(): void {
-    alert("Liking post");
+    this.fullPost.likes += 1;
+    this.postService.update(this.fullPost.id, this.fullPost)
+      .subscribe((response: any) => {
+        console.log(response);
+      });
   }
-  commentPost(): void {
-    alert("Posting comment");
-  }
-  getComments(): void {
-    this.commentService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+
+  getComments(id:any): void {
+    id = Number(id);
+    this.commentService.getallcommentsbypublication(id).subscribe((response: any) => {
+      this.dataSource.data = response.content;
       this.studentData = this.dataSource.data;
-      this.haveInfo = true;
+      //this.haveInfo = true;
+      this.havePosts = true;
     });
   }
-  talk(): void{
-    console.log("aqui estoy");
+
+  flagPost(): void {
+    this.aux = {
+      ReportDescription: "Insultos frecuentes",
+      UserMain: +this.$route.snapshot.params['id'],
+      PostReported: this.fullPost.id
+    }
+    this.report.reportDescription="publicacion inapropiada"
+    this.reportService.create(this.report,+this.$route.snapshot.params['id'],this.relatedUser.id)
+      .subscribe((response: any) => {
+        console.log(response);
+      });
   }
 }

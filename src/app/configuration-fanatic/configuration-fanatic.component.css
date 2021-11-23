@@ -1,0 +1,71 @@
+.example-header-image {
+    background-image: url('https://mandragorafics.files.wordpress.com/2013/02/jensenackleswallpapersp.jpg');
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+  }
+
+.example-card {
+    margin: auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #333333;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+}
+
+.buttonspacertoright{
+    width: 100px; 
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+
+.buttoncenter{
+    text-align: center;
+}
+
+.button{
+    background-color: #9CC7EF;
+    color: #000000;
+}
+
+.image{
+    border-radius: 25pt;
+    width: 100%;
+    margin: auto;
+  }
+
+.table{
+    width: 100%;
+}
+
+.minipadding{
+    padding-bottom: 20px;
+}
+
+.padding{
+    padding-bottom: 100px;
+}
+
+.centeravatar{
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.withoutborder {
+    border: 0; 
+}
+
+.textstyle{
+    color:#FFFFFF;
+}

@@ -1,0 +1,112 @@
+<app-navigation></app-navigation>
+<table class = "table">
+  <tr>
+    <td class = "withoutborder">
+    <mat-card class="example-card">
+      <table class = "table">
+      <tr class = "textstyle">
+        <td class = "withoutborder">
+        <mat-card-header class = "centeravatar">
+          <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <mat-card-content>
+        <div class ="minipadding"></div>
+        <mat-card-title class = "buttoncenter">{{userdata.name}}</mat-card-title>
+        <div class ="minipadding"></div>
+        <mat-card-title class = "buttoncenter">{{userdata.lastName}}</mat-card-title>
+        </mat-card-content>
+        </td>
+        <td class = "withoutborder">
+          <mat-card-header>
+            <mat-card-title>Genders</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor = "let arr of arraygenders">
+              <button mat-raised-button class = "button">{{arr}}</button>
+              <div class = "minipadding"></div>
+            </div>
+            <button mat-raised-button class = "button" (click) = "AddGenders()">Add</button>
+          </mat-card-content>
+        </td>
+      </tr>
+      </table>
+    </mat-card>
+    </td>
+  </tr>
+  <tr>
+    <td class = "withoutborder">
+      <table class ="table">
+        <tr>
+          <td class = "withoutborder">
+              <h1>Notification Push</h1>
+              <h2>Likes</h2>
+              <mat-selection-list>
+                <mat-list-option>Off</mat-list-option>
+                <mat-list-option>From people I follow</mat-list-option>
+                <mat-list-option>From everyone</mat-list-option>
+              </mat-selection-list>
+              <div class ="minipadding"></div>
+              <h2>Comments</h2>
+              <mat-selection-list>
+                <mat-list-option>Off</mat-list-option>
+                <mat-list-option>From people I follow</mat-list-option>
+                <mat-list-option>From everyone</mat-list-option>
+              </mat-selection-list>
+          </td>
+          <td class = "withoutborder">
+            <h1>Change Password</h1>
+            <form #UserForm='ngForm'>
+              <h2>Past password:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert past password" name="pastpassword" required>
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <h2>New password:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert new password" name="newpassword" required
+                [(ngModel)]="userdata.password">
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <h2>Confirm password:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert new password again" name="newpassword" required>
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <button mat-raised-button class="button" (click) = "updateUser()">Change password</button>
+            </form>
+          </td>
+          <td class = "withoutborder">
+            <h1>Edit Profile</h1>
+            <form #UserForm='ngForm'>
+              <h2>Name:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert new name" name="name" required
+                [(ngModel)]="userdata.name">
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <h2>Lastname:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert new lastname" name="lastname" required
+                [(ngModel)]="userdata.lastName">
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <h2>Email:</h2>
+              <mat-form-field>
+                <input matInput placeholder="Insert new email" name="email" required
+                [(ngModel)]="userdata.email">
+                <mat-error>Is required</mat-error>
+              </mat-form-field>
+              <mat-divider></mat-divider>
+              <button mat-raised-button class="button" (click) = "updateUser()">Change profile</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
