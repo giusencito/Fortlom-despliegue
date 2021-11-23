@@ -99,7 +99,7 @@ getAllUsers(){
     })
 
     if(ap){
-      alert("Login successfully");
+      alert("Login successfully artista");
       this.route.navigate(['/HomeArtist',this.iddepaso])
 
     }
@@ -126,7 +126,7 @@ getAllUsers(){
       })
 
       if(ap){
-        alert("Login successfully");
+        alert("Login successfully fanatico");
         this.route.navigate(['/HomeFanatic',this.iddepaso])
 
       }
