@@ -9,7 +9,7 @@ import {Artist} from "../../models/artist";
 })
 export class ArtistService {
 
-basePath = 'http://localhost:8080/api/v1/artists';
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/artists';
 basePath2 = 'http://localhost:3000/Artist'
 
 httpOptions = {

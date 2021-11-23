@@ -9,7 +9,7 @@ import {Fanatic} from "../../models/fanatic";
 })
 export class FanaticService {
 
-basePath = 'http://localhost:8080/api/v1/fanatics';
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/fanatics';
 basePath2 ='http://localhost:3000/Fanatic';
 
 httpOptions = {

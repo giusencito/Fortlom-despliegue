@@ -9,9 +9,9 @@ import {Event} from "../../models/event";
 })
 export class EventService {
 
-basePath = 'http://localhost:8080/api/v1/event';
-BasePath=  'http://localhost:8080/api/v1/events';
-basepathcreate='http://localhost:8080/api/v1/artist';
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/event';
+BasePath=  'https://fortlom-backend.herokuapp.com/api/v1/events';
+basepathcreate='https://fortlom-backend.herokuapp.com/api/v1/artist';
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

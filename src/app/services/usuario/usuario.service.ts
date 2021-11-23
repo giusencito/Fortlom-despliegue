@@ -9,7 +9,7 @@ import {Usuario} from "../../models/usuario";
 })
 export class UsuarioService {
 
-basePath = 'http://localhost:8080/api/v1/users';
+basePath = 'https://fortlom-backend.herokuapp.com/api/v1/users';
 basePath2 = 'http://localhost:3000/Usuario';
 
 httpOptions = {
